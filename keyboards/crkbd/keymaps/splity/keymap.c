@@ -122,6 +122,24 @@ const key_override_t **key_overrides = (const key_override_t *[]){
 };
 #endif // KEY_OVERRIDE_ENABLE
 
+// Combos
+#ifdef COMBO_ENABLE
+enum combos {
+  FJ_ESC,
+  DK_COL,
+  COMBO_LENGTH
+};
+
+uint16_t COMBO_LEN = COMBO_LENGTH;
+
+const uint16_t PROGMEM fj_combo[] = {LCTL_T(KC_F), RCTL_T(KC_J), COMBO_END};
+const uint16_t PROGMEM dk_combo[] = {LGUI_T(KC_D), RGUI_T(KC_K), COMBO_END};
+
+combo_t key_combos[] = {
+  [FJ_ESC] = COMBO(fj_combo, KC_ESC),
+  [DK_COL] = COMBO(dk_combo, LSFT(KC_SCLN)),
+};
+#endif // COMBO_ENABLE
 
 #ifdef OLED_ENABLE
 oled_rotation_t oled_init_user(oled_rotation_t rotation) {
