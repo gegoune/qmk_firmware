@@ -32,6 +32,18 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define HOME_L RSFT_T(KC_L)
 #define HOME_SCLN RALT_T(KC_SCLN)
 
+// Navigation layer aliases
+#define NV_DP C(KC_LEFT)     // Desktop previous
+#define NV_DN C(KC_RIGHT)    // Desktop next
+#define NV_TP SCMD(KC_LBRC)  // Tab previous
+#define NV_TN SCMD(KC_RBRC)  // Tab next
+#define NV_MTL RCS(KC_LEFT)  // Move tab to the left
+#define NV_MTR RCS(KC_RIGHT) // Move tab to the right
+#define NV_TGP C(G(KC_LBRC)) // Tab Group previous
+#define NV_TGN C(G(KC_RBRC)) // Tab Group next
+#define NV_ALF G(KC_SPC)     // Alfred: search
+#define NV_ALFH C(G(KC_SPC)) // Alfred: clipboard history
+
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [0] = LAYOUT_split_3x6_3(
   //,-----------------------------------------------------.                    ,-----------------------------------------------------.
@@ -41,7 +53,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
       KC_LSPO,    KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,                      KC_N,    KC_M, KC_COMM,  KC_DOT,   KC_SLSH,  KC_RSPC,
   //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
-                                        CAPS_WORD,   MO(1),  KC_SPC,     KC_ENT,   MO(2), KC_RALT
+                                            MO(4),   MO(1),  KC_SPC,     KC_ENT,   MO(2), KC_RALT
                                       //`--------------------------'  `--------------------------'
 
   ),
@@ -66,7 +78,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
       _______, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                      KC_UNDS, KC_PLUS, KC_LCBR, KC_RCBR, KC_PIPE, KC_TILD,
   //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
-                                          KC_LGUI,   MO(3),  KC_SPC,     KC_ENT, _______, KC_RALT
+                                          XXXXXXX,   MO(3),  KC_SPC,     KC_ENT, _______, KC_RALT
                                       //`--------------------------'  `--------------------------'
   ),
 
@@ -79,6 +91,18 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
       RGB_MOD, RGB_HUD, RGB_SAD, RGB_VAD, XXXXXXX, XXXXXXX,                      KC_BRID, KC_VOLD, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
   //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
                                           KC_LGUI, _______,  KC_SPC,     KC_ENT, _______, KC_RALT
+                                      //`--------------------------'  `--------------------------'
+  ),
+
+  [4] = LAYOUT_split_3x6_3(
+  //,-----------------------------------------------------.                    ,-----------------------------------------------------.
+      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                       NV_TGP, XXXXXXX, XXXXXXX,  NV_TGN, XXXXXXX, XXXXXXX,
+  //|--------+--------+--------+--------+--------+--------|                    |---------+-------+--------+--------+--------+--------|
+      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                        NV_DP, XXXXXXX, XXXXXXX,   NV_DN, XXXXXXX, XXXXXXX,
+  //|--------+--------+--------+--------+--------+--------|                    |---------+-------+--------+--------+--------+--------|
+      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                        NV_TP,  NV_MTL,  NV_MTR,   NV_TN, XXXXXXX, XXXXXXX,
+  //|--------+--------+--------+--------+--------+--------+--------|  |--------+---------+-------+--------+--------+--------+--------|
+                                          KC_LGUI, XXXXXXX, XXXXXXX,     NV_ALF, NV_ALFH, XXXXXXX
                                       //`--------------------------'  `--------------------------'
   )
 };
@@ -111,6 +135,7 @@ oled_rotation_t oled_init_user(oled_rotation_t rotation) {
 #define L_LOWER 2
 #define L_RAISE 4
 #define L_ADJUST 8
+#define L_NAV 16
 
 void oled_render_layer_state(void) {
     oled_write_P(PSTR("Layer: "), false);
@@ -123,6 +148,9 @@ void oled_render_layer_state(void) {
             break;
         case L_RAISE:
             oled_write_ln_P(PSTR("Raise"), false);
+            break;
+        case L_NAV:
+            oled_write_ln_P(PSTR("Navigate"), false);
             break;
         case L_ADJUST:
         case L_ADJUST|L_LOWER:
