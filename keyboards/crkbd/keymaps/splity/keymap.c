@@ -43,6 +43,8 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define NV_TGN C(G(KC_RBRC)) // Tab Group next
 #define NV_ALF G(KC_SPC)     // Alfred: search
 #define NV_ALFH C(G(KC_SPC)) // Alfred: clipboard history
+#define NV_HB G(KC_LEFT)     // History: back
+#define NV_HF G(KC_RIGHT)    // History: forward
 
 // *INDENT-OFF*
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
@@ -97,7 +99,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
   [4] = LAYOUT_split_3x6_3(
   //,-----------------------------------------------------.                    ,-----------------------------------------------------.
-      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                       NV_TGP, XXXXXXX, XXXXXXX,  NV_TGN, XXXXXXX, XXXXXXX,
+      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                       NV_TGP,   NV_HB,   NV_HF,  NV_TGN, XXXXXXX, XXXXXXX,
   //|--------+--------+--------+--------+--------+--------|                    |---------+-------+--------+--------+--------+--------|
       XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                        NV_DP, XXXXXXX, XXXXXXX,   NV_DN, XXXXXXX, XXXXXXX,
   //|--------+--------+--------+--------+--------+--------|                    |---------+-------+--------+--------+--------+--------|
