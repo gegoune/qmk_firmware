@@ -21,6 +21,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #pragma once
 
 #define MASTER_LEFT
+#define LAYER_STATE_8BIT
 
 // Configure the global tapping term (default: 200ms)
 #define TAPPING_TERM 200
