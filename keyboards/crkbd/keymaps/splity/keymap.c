@@ -46,9 +46,15 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define NV_HB G(KC_LEFT)     // History: back
 #define NV_HF G(KC_RIGHT)    // History: forward
 
+#define _BASE 0
+#define _LOWER 1
+#define _RAISE 2
+#define _ADJUST 3
+#define _NAVIGATION 4
+
 // *INDENT-OFF*
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
-  [0] = LAYOUT_split_3x6_3(
+  [_BASE] = LAYOUT_split_3x6_3(
   //,-----------------------------------------------------.                    ,-----------------------------------------------------.
        KC_ESC,    KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,                      KC_Y,    KC_U,    KC_I,    KC_O,     KC_P,   KC_BSPC,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
@@ -61,7 +67,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
   ),
 
-  [1] = LAYOUT_split_3x6_3(
+  [_LOWER] = LAYOUT_split_3x6_3(
   //,-----------------------------------------------------.                    ,-----------------------------------------------------.
       _______,    KC_1,    KC_2,    KC_3,    KC_4,    KC_5,                         KC_6,    KC_7,    KC_8,    KC_9,    KC_0,  KC_DEL,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
@@ -73,7 +79,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                                       //`--------------------------'  `--------------------------'
   ),
 
-  [2] = LAYOUT_split_3x6_3(
+  [_RAISE] = LAYOUT_split_3x6_3(
   //,-----------------------------------------------------.                    ,-----------------------------------------------------.
       _______, KC_EXLM,   KC_AT, KC_HASH,  KC_DLR, KC_PERC,                      KC_CIRC, KC_AMPR, KC_ASTR, KC_LPRN, KC_RPRN, KC_BSPC,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
@@ -85,7 +91,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                                       //`--------------------------'  `--------------------------'
   ),
 
-  [3] = LAYOUT_split_3x6_3(
+  [_ADJUST] = LAYOUT_split_3x6_3(
   //,-----------------------------------------------------.                    ,-----------------------------------------------------.
         RESET, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                      KC_MUTE, KC_MPRV, KC_MPLY, KC_MNXT, XXXXXXX, XXXXXXX,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
@@ -97,7 +103,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                                       //`--------------------------'  `--------------------------'
   ),
 
-  [4] = LAYOUT_split_3x6_3(
+  [_NAVIGATION] = LAYOUT_split_3x6_3(
   //,-----------------------------------------------------.                    ,-----------------------------------------------------.
       XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                       NV_TGP,   NV_HB,   NV_HF,  NV_TGN, XXXXXXX, XXXXXXX,
   //|--------+--------+--------+--------+--------+--------|                    |---------+-------+--------+--------+--------+--------|
@@ -153,32 +159,23 @@ oled_rotation_t oled_init_user(oled_rotation_t rotation) {
     return rotation;
 }
 
-#define L_BASE 0
-#define L_LOWER 2
-#define L_RAISE 4
-#define L_ADJUST 8
-#define L_NAV 16
-
 void oled_render_layer_state(void) {
     oled_write_P(PSTR("Layer: "), false);
-    switch (layer_state) {
-    case L_BASE:
+    switch (get_highest_layer(layer_state)) {
+    case _BASE:
         oled_write_ln_P(PSTR("Default"), false);
         break;
-    case L_LOWER:
+    case _LOWER:
         oled_write_ln_P(PSTR("Lower"), false);
         break;
-    case L_RAISE:
+    case _RAISE:
         oled_write_ln_P(PSTR("Raise"), false);
         break;
-    case L_NAV:
-        oled_write_ln_P(PSTR("Navigate"), false);
-        break;
-    case L_ADJUST:
-    case L_ADJUST|L_LOWER:
-    case L_ADJUST|L_RAISE:
-    case L_ADJUST|L_LOWER|L_RAISE:
+    case _ADJUST:
         oled_write_ln_P(PSTR("Adjust"), false);
+        break;
+    case _NAVIGATION:
+        oled_write_ln_P(PSTR("Navigation"), false);
         break;
     }
 }
