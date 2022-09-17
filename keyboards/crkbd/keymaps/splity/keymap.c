@@ -137,7 +137,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //|--------+--------+--------+--------+--------+--------+|                    |-----------------+-------+--------+--------+--------|
       _______, XXXXXXX, KC_KP_4, KC_KP_5, KC_KP_6, XXXXXXX,                      XXXXXXX, KC_PMNS, KC_PPLS,  KC_EQL, XXXXXXX, XXXXXXX,
   //|--------+--------+--------+--------+--------+--------+|                    |-----------------+-------+--------+--------+--------|
-      XXXXXXX, XXXXXXX, KC_KP_1, KC_KP_2, KC_KP_3, XXXXXXX,                      XXXXXXX, XXXXXXX, _______, _______, XXXXXXX, XXXXXXX,
+      XXXXXXX, XXXXXXX, KC_KP_1, KC_KP_2, KC_KP_3, XXXXXXX,                      XXXXXXX, XXXXXXX, _______, _______, _______, XXXXXXX,
   //|--------+--------+--------+--------+--------+--------+---------|  |--------+----------------++-------+--------+--------+--------|
                                           XXXXXXX, KC_KP_0, XXXXXXX,     CK_ENT, XXXXXXX, _______
                                       //`--------------------------'  `--------------------------'
