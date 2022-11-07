@@ -91,7 +91,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
       _______, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                      XXXXXXX, KC_PGDN, KC_PGUP, XXXXXXX,  KC_END, XXXXXXX,
   //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
-                                          KC_LGUI, _______,  KC_SPC,     KC_ENT,   MO(3),  KC_DEL
+                                          KC_LGUI, _______,  KC_SPC,     KC_ENT,   MO(3), _______
                                       //`--------------------------'  `--------------------------'
   ),
 
@@ -127,7 +127,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //|--------+--------+--------+--------+--------+--------|                    |---------+-------+--------+--------+--------+--------|
       XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                        NV_TP,  NV_MTL,  NV_MTR,   NV_TN, XXXXXXX, XXXXXXX,
   //|--------+--------+--------+--------+--------+--------+--------|  |--------+---------+-------+--------+--------+--------+--------|
-                                          KC_LGUI, XXXXXXX, XXXXXXX,     NV_ALF, NV_ALFH, XXXXXXX
+                                          KC_LGUI, XXXXXXX, XXXXXXX,     NV_ALF, NV_ALFH,  KC_DEL
                                       //`--------------------------'  `--------------------------'
   ),
 
