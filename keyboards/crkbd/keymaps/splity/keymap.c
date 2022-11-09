@@ -212,7 +212,7 @@ void oled_render_layer_state(void) {
 }
 
 void caps_word_set_user(bool active) {
-    oled_write_P(PSTR(" CAPS "), active);
+    oled_write_P(PSTR("CAPS"), active);
 }
 
 void oled_render_logo(void) {
