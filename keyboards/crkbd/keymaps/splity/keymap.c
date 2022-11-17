@@ -28,12 +28,25 @@
 #define NV_HB G(KC_LEFT)     // History: back
 #define NV_HF G(KC_RIGHT)    // History: forward
 
+// Extra layer aliases
+// LAG: Hold Left Alt and Left GUI and press kc
+// MEH: Hold Left Control, Shift and Alt and press kc
+#define PA_L LAG(KC_LEFT)  // Pane (activate) left
+#define PA_D LAG(KC_DOWN)  // Pane (activate) down
+#define PA_U LAG(KC_UP)    // Pane (activate) up
+#define PA_R LAG(KC_RIGHT) // Pane (activate) right
+#define PR_L MEH(KC_LEFT)  // Pane (resize) left
+#define PR_D MEH(KC_DOWN)  // Pane (resize) down
+#define PR_U MEH(KC_UP)    // Pane (resize) up
+#define PR_R MEH(KC_RIGHT) // Pane (resize) right
+
 #define _BASE 0
 #define _LOWER 1
 #define _RAISE 2
 #define _ADJUST 3
 #define _NAVIGATION 4
 #define _NUMPAD 5
+#define _EXTRA 6
 
 // Custom keys
 enum custom_keycodes {
@@ -54,7 +67,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [_BASE] = LAYOUT_split_3x6_3(
   //,-----------------------------------------------------.                    ,-----------------------------------------------------.
-       KC_ESC,    KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,                      KC_Y,    KC_U,    KC_I,    KC_O,     KC_P,     TG(5),
+        MO(6),    KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,                      KC_Y,    KC_U,    KC_I,    KC_O,     KC_P,     TG(5),
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
        KC_TAB,  HOME_A,  HOME_S,  HOME_D,  HOME_F,    KC_G,                      KC_H,  HOME_J,  HOME_K,   HOME_L, HOME_SCLN, KC_QUOT,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
@@ -123,6 +136,18 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //|--------+--------+--------+--------+--------+--------+---------|  |--------+----------------++-------+--------+--------+--------|
                                           XXXXXXX, KC_KP_0, XXXXXXX,     CK_ENT, XXXXXXX, _______
                                       //`--------------------------'  `--------------------------'
+  ),
+
+  [_EXTRA] = LAYOUT_split_3x6_3(
+  //,------------------------------------------------------.                    ,----------------------------------------------------.
+      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                         PR_L,    PR_D,    PR_U,    PR_R, XXXXXXX, XXXXXXX,
+  //|--------+--------+--------+--------+--------+--------+|                    |-----------------+-------+--------+--------+--------|
+      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                         PA_L,    PA_D,    PA_U,    PA_R, XXXXXXX, XXXXXXX,
+  //|--------+--------+--------+--------+--------+--------+|                    |-----------------+-------+--------+--------+--------|
+      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
+  //|--------+--------+--------+--------+--------+--------+---------|  |--------+----------------++-------+--------+--------+--------|
+                                          XXXXXXX, XXXXXXX, XXXXXXX,     XXXXXXX, XXXXXXX, XXXXXXX
+                                      //`--------------------------'  `--------------------------'
   )
 };
 // *INDENT-ON*
@@ -189,6 +214,9 @@ void oled_render_layer_state(void) {
         break;
     case _NUMPAD:
         oled_write_ln_P(PSTR("Numeric"), false);
+        break;
+    case _EXTRA:
+        oled_write_ln_P(PSTR("Extra"), false);
         break;
     }
 }
