@@ -3,6 +3,9 @@
 #define MASTER_LEFT
 #define LAYER_STATE_8BIT
 
+// Fix home row mods not emiting keys on Macos login prompt.
+#define TAP_CODE_DELAY 10
+
 // Configure the global tapping term (default: 200ms)
 #define TAPPING_TERM 200
 
