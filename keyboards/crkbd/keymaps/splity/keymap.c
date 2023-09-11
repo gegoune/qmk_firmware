@@ -45,13 +45,15 @@
 
 #define GBP LSFT(KC_NUBS) // British Pound symbol
 
-#define _BASE 0
-#define _LOWER 1
-#define _RAISE 2
-#define _ADJUST 3
-#define _NAVIGATION 4
-#define _NUMPAD 5
-#define _EXTRA 6
+enum layers {
+    _BASE,
+    _LOWER,
+    _RAISE,
+    _ADJUST,
+    _NAVIGATION,
+    _NUMPAD,
+    _EXTRA
+};
 
 // Custom keys
 enum custom_keycodes {
