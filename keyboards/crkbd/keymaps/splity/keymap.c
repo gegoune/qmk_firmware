@@ -7,12 +7,14 @@
 #define HOME_S LSFT_T(KC_S)
 #define HOME_D LGUI_T(KC_D)
 #define HOME_F LCTL_T(KC_F)
+#define HOME_Z RALT_T(KC_Z)
 
 // Right-hand home row mods
 #define HOME_J RCTL_T(KC_J)
 #define HOME_K RGUI_T(KC_K)
 #define HOME_L RSFT_T(KC_L)
 #define HOME_SCLN RALT_T(KC_SCLN)
+#define HOME_SLSH LALT_T(KC_SLSH)
 
 // Navigation layer aliases
 #define NV_DP C(KC_LEFT)     // Desktop previous
@@ -78,7 +80,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
        KC_TAB,  HOME_A,  HOME_S,  HOME_D,  HOME_F,    KC_G,                      KC_H,  HOME_J,  HOME_K,   HOME_L, HOME_SCLN, KC_QUOT,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-         NWIN,    KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,                      KC_N,    KC_M, KC_COMM,  KC_DOT,   KC_SLSH,     NWIN,
+         NWIN,  HOME_Z,    KC_X,    KC_C,    KC_V,    KC_B,                      KC_N,    KC_M, KC_COMM,  KC_DOT,  HOME_SLSH,    NWIN,
   //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
                                             MO(4),   MO(1),  KC_SPC,     KC_ENT,   MO(2), KC_BSPC
                                       //`--------------------------'  `--------------------------'
