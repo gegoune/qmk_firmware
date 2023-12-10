@@ -161,21 +161,6 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 };
 // *INDENT-ON*
 
-// Key overrides.
-#ifdef KEY_OVERRIDE_ENABLE
-// Shift + esc = ~
-const key_override_t tilde_esc_override = ko_make_basic(MOD_MASK_SHIFT, KC_ESC, S(KC_GRV));
-
-// GUI + esc = `
-const key_override_t grave_esc_override = ko_make_basic(MOD_MASK_GUI, KC_ESC, KC_GRV);
-
-const key_override_t **key_overrides = (const key_override_t *[]) {
-    &tilde_esc_override,
-    &grave_esc_override,
-    NULL
-};
-#endif // KEY_OVERRIDE_ENABLE
-
 // Combos
 #ifdef COMBO_ENABLE
 enum combos {
