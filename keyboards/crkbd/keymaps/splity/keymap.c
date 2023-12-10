@@ -76,11 +76,11 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [_BASE] = LAYOUT_split_3x6_3(
   //,-----------------------------------------------------.                    ,-----------------------------------------------------.
-        MO(6),    KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,                      KC_Y,    KC_U,    KC_I,    KC_O,     KC_P,     TG(5),
+        MO(6),    KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,                         KC_Y,    KC_U,    KC_I,    KC_O,     KC_P,  TG(5),
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-       KC_TAB,  HOME_A,  HOME_S,  HOME_D,  HOME_F,    KC_G,                      KC_H,  HOME_J,  HOME_K,   HOME_L, HOME_SCLN, KC_QUOT,
+       KC_TAB,  HOME_A,  HOME_S,  HOME_D,  HOME_F,    KC_G,                         KC_H,  HOME_J,  HOME_K,  HOME_L,HOME_SCLN,KC_QUOT,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-         NWIN,  HOME_Z,    KC_X,    KC_C,    KC_V,    KC_B,                      KC_N,    KC_M, KC_COMM,  KC_DOT,  HOME_SLSH,    NWIN,
+         NWIN,  HOME_Z,    KC_X,    KC_C,    KC_V,    KC_B,                          KC_N,   KC_M, KC_COMM,  KC_DOT,HOME_SLSH,   NWIN,
   //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
                                             MO(4),   MO(1),  KC_SPC,     KC_ENT,   MO(2), KC_BSPC
                                       //`--------------------------'  `--------------------------'
@@ -91,7 +91,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //,-----------------------------------------------------.                    ,-----------------------------------------------------.
       _______,    KC_4,    KC_3,    KC_2,    KC_1,    KC_5,                         KC_0,    KC_6,    KC_7,    KC_8,    KC_9, XXXXXXX,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-      _______, _______, _______, _______, _______, XXXXXXX,                      KC_LEFT, KC_DOWN,   KC_UP, KC_RIGHT,KC_HOME, KC_NUBS,
+      _______, _______, _______, _______, _______, XXXXXXX,                      KC_LEFT, KC_DOWN,   KC_UP,KC_RIGHT, KC_HOME, KC_NUBS,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
       _______, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                      XXXXXXX, KC_PGDN, KC_PGUP, XXXXXXX,  KC_END, XXXXXXX,
   //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
