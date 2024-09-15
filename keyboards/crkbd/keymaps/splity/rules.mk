@@ -11,6 +11,5 @@ OLED_DRIVER         = ssd1306
 WPM_ENABLE          = no
 CAPS_WORD_ENABLE    = yes
 COMBO_ENABLE        = yes
-KEY_OVERRIDE_ENABLE = yes
 AUTO_SHIFT_ENABLE   = no
 TAP_DANCE_ENABLE    = no
