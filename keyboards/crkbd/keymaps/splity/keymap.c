@@ -7,6 +7,7 @@
 #define HOME_S LSFT_T(KC_S)
 #define HOME_D LGUI_T(KC_D)
 #define HOME_F LCTL_T(KC_F)
+#define HOME_G LT(5, KC_G)
 #define HOME_Z RALT_T(KC_Z)
 
 // Right-hand home row mods
@@ -78,7 +79,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //,-----------------------------------------------------.                    ,-----------------------------------------------------.
         MO(6),    KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,                         KC_Y,    KC_U,    KC_I,    KC_O,     KC_P,  TG(5),
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-       KC_TAB,  HOME_A,  HOME_S,  HOME_D,  HOME_F,    KC_G,                         KC_H,  HOME_J,  HOME_K,  HOME_L,HOME_SCLN,KC_QUOT,
+       KC_TAB,  HOME_A,  HOME_S,  HOME_D,  HOME_F,  HOME_G,                         KC_H,  HOME_J,  HOME_K,  HOME_L,HOME_SCLN,KC_QUOT,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
          NWIN,  HOME_Z,    KC_X,    KC_C,    KC_V,    KC_B,                          KC_N,   KC_M, KC_COMM,  KC_DOT,HOME_SLSH,   NWIN,
   //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
@@ -137,13 +138,13 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
   [_NUMPAD] = LAYOUT_split_3x6_3(
   //,------------------------------------------------------.                    ,----------------------------------------------------.
-      XXXXXXX, XXXXXXX, KC_KP_7, KC_KP_8, KC_KP_9, XXXXXXX,                      XXXXXXX, KC_PSLS, KC_PAST, XXXXXXX, XXXXXXX, _______,
-  //|--------+--------+--------+--------+--------+--------+|                    |-----------------+-------+--------+--------+--------|
-      _______, XXXXXXX, KC_KP_4, KC_KP_5, KC_KP_6, XXXXXXX,                      XXXXXXX, KC_PMNS, KC_PPLS,  KC_EQL, XXXXXXX, XXXXXXX,
-  //|--------+--------+--------+--------+--------+--------+|                    |-----------------+-------+--------+--------+--------|
-      XXXXXXX, XXXXXXX, KC_KP_1, KC_KP_2, KC_KP_3, XXXXXXX,                      XXXXXXX, XXXXXXX, _______, _______, _______, XXXXXXX,
-  //|--------+--------+--------+--------+--------+--------+---------|  |--------+----------------++-------+--------+--------+--------|
-                                          XXXXXXX, KC_KP_0, _______,     CK_ENT, XXXXXXX, _______
+      KC_LPRN, KC_RPRN, KC_PSLS, KC_PAST, XXXXXXX, XXXXXXX,                      XXXXXXX, KC_KP_7, KC_KP_8, KC_KP_9, XXXXXXX, _______,
+  //|--------+--------+---------+-------+--------+--------+|                    |----------------+--------+--------+--------+--------|
+      _______, XXXXXXX, KC_PMNS, KC_PPLS,  KC_EQL, XXXXXXX,                      XXXXXXX, KC_KP_4, KC_KP_5, KC_KP_6,  KC_DOT, XXXXXXX,
+  //|--------+--------+---------+-------+--------+--------+|                    |----------------+--------+--------+--------+--------|
+      XXXXXXX, XXXXXXX, KC_COMM,  KC_DOT, XXXXXXX, XXXXXXX,                      XXXXXXX, KC_KP_1, KC_KP_2, KC_KP_3, _______, XXXXXXX,
+  //|--------+--------+--------++-------+--------+--------+---------|  |--------+----------------+--------+--------+--------+--------|
+                                          XXXXXXX, XXXXXXX, _______,     CK_ENT, KC_KP_0, _______
                                       //`--------------------------'  `--------------------------'
   ),
 
