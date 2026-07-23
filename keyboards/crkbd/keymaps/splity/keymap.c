@@ -27,7 +27,7 @@
 #define NV_TGP C(G(KC_LBRC)) // Tab Group previous
 #define NV_TGN C(G(KC_RBRC)) // Tab Group next
 #define NV_ALF G(KC_SPC)     // Alfred: search
-#define NV_ALFH C(G(KC_SPC)) // Alfred: clipboard history
+#define NV_ALFH S(G(KC_SPC)) // Alfred: clipboard history
 #define NV_HB G(KC_LEFT)     // History: back
 #define NV_HF G(KC_RIGHT)    // History: forward
 
@@ -139,20 +139,20 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                                 KC_LGUI , _______ , KC_SPC  ,     KC_ENT  , _______ , _______
 ),
 
-//    ┌────┬────┬────┬──────┬────┬────┐   ┌────────┬─────────┬────────┬────────┬────┬────┐
-//    │ no │ no │ no │  no  │ no │ no │   │ NV_TGP │  NV_HB  │ NV_HF  │ NV_TGN │ no │ no │
-//    ├────┼────┼────┼──────┼────┼────┤   ├────────┼─────────┼────────┼────────┼────┼────┤
-//    │ no │ no │ no │  no  │ no │ no │   │ NV_DP  │   no    │   no   │ NV_DN  │ no │ no │
-//    ├────┼────┼────┼──────┼────┼────┤   ├────────┼─────────┼────────┼────────┼────┼────┤
-//    │ no │ no │ no │  no  │ no │ no │   │ NV_TP  │ NV_MTL  │ NV_MTR │ NV_TN  │ no │ no │
-//    └────┴────┴────┼──────┼────┼────┤   ├────────┼─────────┼────────┼────────┴────┴────┘
-//                   │ lgui │ no │ no │   │ NV_ALF │ NV_ALFH │  del   │
-//                   └──────┴────┴────┘   └────────┴─────────┴────────┘
+//    ┌────┬────┬────┬──────┬────┬────┐   ┌─────────┬────────┬────────┬────────┬────┬────┐
+//    │ no │ no │ no │  no  │ no │ no │   │ NV_TGP  │ NV_HB  │ NV_HF  │ NV_TGN │ no │ no │
+//    ├────┼────┼────┼──────┼────┼────┤   ├─────────┼────────┼────────┼────────┼────┼────┤
+//    │ no │ no │ no │  no  │ no │ no │   │  NV_DP  │   no   │   no   │ NV_DN  │ no │ no │
+//    ├────┼────┼────┼──────┼────┼────┤   ├─────────┼────────┼────────┼────────┼────┼────┤
+//    │ no │ no │ no │  no  │ no │ no │   │  NV_TP  │ NV_MTL │ NV_MTR │ NV_TN  │ no │ no │
+//    └────┴────┴────┼──────┼────┼────┤   ├─────────┼────────┼────────┼────────┴────┴────┘
+//                   │ lgui │ no │ no │   │ NV_ALFH │ NV_ALF │  del   │
+//                   └──────┴────┴────┘   └─────────┴────────┴────────┘
 [_NAVIGATION] = LAYOUT_split_3x6_3(
-  XXXXXXX , XXXXXXX , XXXXXXX , XXXXXXX , XXXXXXX , XXXXXXX ,     NV_TGP , NV_HB   , NV_HF   , NV_TGN , XXXXXXX , XXXXXXX,
-  XXXXXXX , XXXXXXX , XXXXXXX , XXXXXXX , XXXXXXX , XXXXXXX ,     NV_DP  , XXXXXXX , XXXXXXX , NV_DN  , XXXXXXX , XXXXXXX,
-  XXXXXXX , XXXXXXX , XXXXXXX , XXXXXXX , XXXXXXX , XXXXXXX ,     NV_TP  , NV_MTL  , NV_MTR  , NV_TN  , XXXXXXX , XXXXXXX,
-                                KC_LGUI , XXXXXXX , XXXXXXX ,     NV_ALF , NV_ALFH , KC_DEL
+  XXXXXXX , XXXXXXX , XXXXXXX , XXXXXXX , XXXXXXX , XXXXXXX ,     NV_TGP  , NV_HB   , NV_HF   , NV_TGN , XXXXXXX , XXXXXXX,
+  XXXXXXX , XXXXXXX , XXXXXXX , XXXXXXX , XXXXXXX , XXXXXXX ,     NV_DP   , XXXXXXX , XXXXXXX , NV_DN  , XXXXXXX , XXXXXXX,
+  XXXXXXX , XXXXXXX , XXXXXXX , XXXXXXX , XXXXXXX , XXXXXXX ,     NV_TP   , NV_MTL  , NV_MTR  , NV_TN  , XXXXXXX , XXXXXXX,
+                                KC_LGUI , XXXXXXX , XXXXXXX ,     NV_ALFH , NV_ALF  , KC_DEL
 ),
 
 //    ┌─────┬────┬──────┬──────┬────┬─────┐   ┌────────┬──────┬──────┬──────┬─────┬─────┐
