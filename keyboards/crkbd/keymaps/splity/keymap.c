@@ -7,7 +7,7 @@
 #define HOME_S LSFT_T(KC_S)
 #define HOME_D LGUI_T(KC_D)
 #define HOME_F LCTL_T(KC_F)
-#define HOME_G LT(5, KC_G)
+#define HOME_G LT(_NUMPAD, KC_G)
 #define HOME_Z RALT_T(KC_Z)
 
 // Right-hand home row mods
@@ -32,8 +32,8 @@
 #define NV_HF G(KC_RIGHT)    // History: forward
 
 // Extra layer aliases
-// LAG: Hold Left Alt and Left GUI and press kc
-// MEH: Hold Left Control, Shift and Alt and press kc
+// LAG: Hold Left Alt and Left GUI and press <kc>
+// MEH: Hold Left Control, Shift and Alt and press <kc>
 #define PA_L LAG(KC_LEFT)  // Pane (activate) left
 #define PA_D LAG(KC_DOWN)  // Pane (activate) down
 #define PA_U LAG(KC_UP)    // Pane (activate) up
@@ -199,12 +199,12 @@ enum combos {
 
 uint16_t COMBO_LEN = COMBO_LENGTH;
 
-const uint16_t PROGMEM fj_combo[] = {LCTL_T(KC_F), RCTL_T(KC_J), COMBO_END};
-const uint16_t PROGMEM dk_combo[] = {LGUI_T(KC_D), RGUI_T(KC_K), COMBO_END};
+const uint16_t PROGMEM fj_combo[] = {HOME_F, HOME_J, COMBO_END};
+const uint16_t PROGMEM dk_combo[] = {HOME_D, HOME_K, COMBO_END};
 
 combo_t key_combos[] = {
     [FJ_ESC] = COMBO(fj_combo, KC_ESC),
-    [DK_COL] = COMBO(dk_combo, LSFT(KC_SCLN)),
+    [DK_COL] = COMBO(dk_combo, KC_COLN),
 };
 #endif // COMBO_ENABLE
 
