@@ -211,40 +211,9 @@ combo_t key_combos[] = {
 #ifdef OLED_ENABLE
 oled_rotation_t oled_init_user(oled_rotation_t rotation) {
     if (!is_keyboard_master()) {
-        return OLED_ROTATION_180;  // flips the display 180 degrees if offhand
+        return OLED_ROTATION_180;
     }
-    return rotation;
-}
-
-void oled_render_layer_state(void) {
-    oled_write_P(PSTR("Layer: "), false);
-    switch (get_highest_layer(layer_state)) {
-    case _BASE:
-        oled_write_ln_P(PSTR("Default"), false);
-        break;
-    case _LOWER:
-        oled_write_ln_P(PSTR("Lower"), false);
-        break;
-    case _RAISE:
-        oled_write_ln_P(PSTR("Raise"), false);
-        break;
-    case _ADJUST:
-        oled_write_ln_P(PSTR("Adjust"), false);
-        break;
-    case _NAVIGATION:
-        oled_write_ln_P(PSTR("Navigation"), false);
-        break;
-    case _NUMPAD:
-        oled_write_ln_P(PSTR("Numeric"), false);
-        break;
-    case _EXTRA:
-        oled_write_ln_P(PSTR("Extra"), false);
-        break;
-    }
-}
-
-void caps_word_set_user(bool active) {
-    oled_write_P(PSTR("CAPS"), active);
+    return OLED_ROTATION_270;
 }
 
 void oled_render_logo(void) {
@@ -257,12 +226,90 @@ void oled_render_logo(void) {
     oled_write_P(crkbd_logo, false);
 }
 
+void oled_render_layer_state(void) {
+    switch (get_highest_layer(layer_state)) {
+    case _BASE:
+        oled_write_ln_P(PSTR("BASE"), false);
+        break;
+    case _LOWER:
+        oled_write_ln_P(PSTR("LOWE"), false);
+        break;
+    case _RAISE:
+        oled_write_ln_P(PSTR("HIGH"), false);
+        break;
+    case _ADJUST:
+        oled_write_ln_P(PSTR("ADJT"), false);
+        break;
+    case _NAVIGATION:
+        oled_write_ln_P(PSTR("NAVI"), false);
+        break;
+    case _NUMPAD:
+        oled_write_ln_P(PSTR("NUME"), false);
+        break;
+    case _EXTRA:
+        oled_write_ln_P(PSTR("EXTR"), false);
+        break;
+    }
+}
+
+static bool caps_word_active = false;
+void caps_word_set_user(bool active) {
+    caps_word_active = active;
+}
+
+void oled_render_caps_word(void) {
+    if (caps_word_active) {
+        oled_set_cursor(0, oled_max_lines() - 1);
+        oled_write_P(PSTR("CAPS"), true);
+    }
+}
+
+void oled_render_mods(void) {
+    uint8_t mods = get_mods() | get_oneshot_mods();
+
+    char buf[] = "ASGC";
+
+    if (!(mods & MOD_MASK_ALT))   buf[0] = '.';
+    if (!(mods & MOD_MASK_SHIFT)) buf[1] = '.';
+    if (!(mods & MOD_MASK_GUI))   buf[2] = '.';
+    if (!(mods & MOD_MASK_CTRL))  buf[3] = '.';
+
+    oled_write_ln(buf, false);
+}
+
 bool oled_task_user(void) {
+    oled_clear();
     if (is_keyboard_master()) {
         oled_render_layer_state();
+        oled_render_mods();
+        oled_render_caps_word();
     } else {
         oled_render_logo();
     }
     return false;
+}
+
+void oled_render_boot(bool bootloader) {
+    oled_clear();
+
+    for (int i = 0; i < 16; i++) {
+        oled_set_cursor(0, i);
+        if (bootloader) {
+            oled_write_P(PSTR("FIRM"), true);
+        } else {
+            oled_write_P(PSTR("BOOT"), true);
+        }
+    }
+
+    oled_render_dirty(true);
+
+    oled_scroll_set_area(0, 7);   // whole display (for 128x64)
+    oled_scroll_set_speed(3);
+    oled_scroll_left();
+}
+
+bool shutdown_user(bool jump_to_bootloader) {
+    oled_render_boot(jump_to_bootloader);
+    return true;
 }
 #endif // OLED_ENABLE
