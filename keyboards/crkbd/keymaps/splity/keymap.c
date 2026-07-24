@@ -123,19 +123,19 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                                 XXXXXXX , MO(3)   , KC_SPC  ,     KC_ENT  , _______ , _______
 ),
 
-//    ┌─────────┬────┬────┬──────┬─────┬─────┐   ┌──────┬──────┬──────┬──────┬────┬────┐
-//    │ QK_BOOT │ no │ no │  no  │ no  │ no  │   │ mute │ mprv │ mply │ mnxt │ no │ no │
-//    ├─────────┼────┼────┼──────┼─────┼─────┤   ├──────┼──────┼──────┼──────┼────┼────┤
-//    │   no    │ no │ no │  no  │ no  │ no  │   │ bRIU │ volu │  no  │  no  │ no │ no │
-//    ├─────────┼────┼────┼──────┼─────┼─────┤   ├──────┼──────┼──────┼──────┼────┼────┤
-//    │   no    │ no │ no │  no  │ no  │ no  │   │ bRID │ vold │  no  │  no  │ no │ no │
-//    └─────────┴────┴────┼──────┼─────┼─────┤   ├──────┼──────┼──────┼──────┴────┴────┘
+//    ┌─────────┬────┬────┬──────┬─────┬─────┐   ┌──────┬──────┬──────┬──────┬────┬───────────┐
+//    │ QK_BOOT │ no │ no │  no  │ no  │ no  │   │ mute │ mprv │ mply │ mnxt │ no │ QK_REBOOT │
+//    ├─────────┼────┼────┼──────┼─────┼─────┤   ├──────┼──────┼──────┼──────┼────┼───────────┤
+//    │   no    │ no │ no │  no  │ no  │ no  │   │ bRIU │ volu │  no  │  no  │ no │    no     │
+//    ├─────────┼────┼────┼──────┼─────┼─────┤   ├──────┼──────┼──────┼──────┼────┼───────────┤
+//    │   no    │ no │ no │  no  │ no  │ no  │   │ bRID │ vold │  no  │  no  │ no │    no     │
+//    └─────────┴────┴────┼──────┼─────┼─────┤   ├──────┼──────┼──────┼──────┴────┴───────────┘
 //                        │ lgui │     │ spc │   │ ent  │      │      │
 //                        └──────┴─────┴─────┘   └──────┴──────┴──────┘
 [_ADJUST] = LAYOUT_split_3x6_3(
-  QK_BOOT , XXXXXXX , XXXXXXX , XXXXXXX , XXXXXXX , XXXXXXX ,     KC_MUTE , KC_MPRV , KC_MPLY , KC_MNXT , XXXXXXX , XXXXXXX,
-  XXXXXXX , XXXXXXX , XXXXXXX , XXXXXXX , XXXXXXX , XXXXXXX ,     KC_BRIU , KC_VOLU , XXXXXXX , XXXXXXX , XXXXXXX , XXXXXXX,
-  XXXXXXX , XXXXXXX , XXXXXXX , XXXXXXX , XXXXXXX , XXXXXXX ,     KC_BRID , KC_VOLD , XXXXXXX , XXXXXXX , XXXXXXX , XXXXXXX,
+  QK_BOOT , XXXXXXX , XXXXXXX , XXXXXXX , XXXXXXX , XXXXXXX ,     KC_MUTE , KC_MPRV , KC_MPLY , KC_MNXT , XXXXXXX , QK_REBOOT,
+  XXXXXXX , XXXXXXX , XXXXXXX , XXXXXXX , XXXXXXX , XXXXXXX ,     KC_BRIU , KC_VOLU , XXXXXXX , XXXXXXX , XXXXXXX , XXXXXXX  ,
+  XXXXXXX , XXXXXXX , XXXXXXX , XXXXXXX , XXXXXXX , XXXXXXX ,     KC_BRID , KC_VOLD , XXXXXXX , XXXXXXX , XXXXXXX , XXXXXXX  ,
                                 KC_LGUI , _______ , KC_SPC  ,     KC_ENT  , _______ , _______
 ),
 
