@@ -20,9 +20,11 @@
 // Enable rapid switch from tap to hold, disables double tap hold auto-repeat.
 #define TAPPING_FORCE_HOLD
 
-// https://docs.qmk.fm/#/feature_auto_shift?id=retro-shift
+// https://docs.qmk.fm/features/auto_shift#retro-shift
 #define RETRO_SHIFT 500
-
+// https://docs.qmk.fm/features/auto_shift#auto-shift-repeat-simple-define
+#define AUTO_SHIFT_REPEAT
+// https://docs.qmk.fm/features/auto_shift#no-auto-shift-special-simple-define
 #define NO_AUTO_SHIFT_SPECIAL
 
 #define BOTH_SHIFTS_TURNS_ON_CAPS_WORD

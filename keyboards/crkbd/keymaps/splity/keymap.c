@@ -313,3 +313,7 @@ bool shutdown_user(bool jump_to_bootloader) {
     return true;
 }
 #endif // OLED_ENABLE
+
+bool get_custom_auto_shifted_key(uint16_t keycode, keyrecord_t *record) {
+    return IS_QK_MOD_TAP(keycode);
+}
