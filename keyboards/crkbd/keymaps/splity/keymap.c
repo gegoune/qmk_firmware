@@ -42,6 +42,8 @@
 #define PR_D MEH(KC_DOWN)  // Pane (resize) down
 #define PR_U MEH(KC_UP)    // Pane (resize) up
 #define PR_R MEH(KC_RIGHT) // Pane (resize) right
+#define MO_SD HYPR(KC_SPC) // MacOS Show Desktop
+#define MO_MC HYPR(KC_ENT) // MacOS Mission Control
 
 // Neovim
 #define NWIN LCTL(KC_W) // Send C-w
@@ -171,20 +173,20 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                                 XXXXXXX , XXXXXXX , _______ ,     CK_ENT  , KC_KP_0 , _______
 ),
 
-//    ┌────┬─────┬─────┬─────┬─────┬─────┐   ┌──────┬──────┬──────┬──────┬────┬────┐
-//    │ no │ f1  │ f2  │ f3  │ f4  │ f5  │   │ PR_L │ PR_D │ PR_U │ PR_R │ no │ no │
-//    ├────┼─────┼─────┼─────┼─────┼─────┤   ├──────┼──────┼──────┼──────┼────┼────┤
-//    │ no │ f6  │ f7  │ f8  │ f9  │ f10 │   │ PA_L │ PA_D │ PA_U │ PA_R │ no │ no │
-//    ├────┼─────┼─────┼─────┼─────┼─────┤   ├──────┼──────┼──────┼──────┼────┼────┤
-//    │ no │ f11 │ f12 │ f13 │ f14 │ f15 │   │  no  │  no  │  no  │  no  │ no │ no │
-//    └────┴─────┴─────┼─────┼─────┼─────┤   ├──────┼──────┼──────┼──────┴────┴────┘
-//                     │ no  │ no  │ no  │   │  no  │  no  │  no  │
-//                     └─────┴─────┴─────┘   └──────┴──────┴──────┘
+//    ┌────┬─────┬─────┬─────┬─────┬─────┐   ┌───────┬───────┬──────┬──────┬────┬────┐
+//    │ no │ f1  │ f2  │ f3  │ f4  │ f5  │   │ PR_L  │ PR_D  │ PR_U │ PR_R │ no │ no │
+//    ├────┼─────┼─────┼─────┼─────┼─────┤   ├───────┼───────┼──────┼──────┼────┼────┤
+//    │ no │ f6  │ f7  │ f8  │ f9  │ f10 │   │ PA_L  │ PA_D  │ PA_U │ PA_R │ no │ no │
+//    ├────┼─────┼─────┼─────┼─────┼─────┤   ├───────┼───────┼──────┼──────┼────┼────┤
+//    │ no │ f11 │ f12 │ f13 │ f14 │ f15 │   │  no   │  no   │  no  │  no  │ no │ no │
+//    └────┴─────┴─────┼─────┼─────┼─────┤   ├───────┼───────┼──────┼──────┴────┴────┘
+//                     │ no  │ no  │ no  │   │ MO_MC │ MO_SD │  no  │
+//                     └─────┴─────┴─────┘   └───────┴───────┴──────┘
 [_EXTRA] = LAYOUT_split_3x6_3(
   XXXXXXX , KC_F1  , KC_F2  , KC_F3   , KC_F4   , KC_F5   ,     PR_L    , PR_D    , PR_U    , PR_R    , XXXXXXX , XXXXXXX,
   XXXXXXX , KC_F6  , KC_F7  , KC_F8   , KC_F9   , KC_F10  ,     PA_L    , PA_D    , PA_U    , PA_R    , XXXXXXX , XXXXXXX,
   XXXXXXX , KC_F11 , KC_F12 , KC_F13  , KC_F14  , KC_F15  ,     XXXXXXX , XXXXXXX , XXXXXXX , XXXXXXX , XXXXXXX , XXXXXXX,
-                              XXXXXXX , XXXXXXX , XXXXXXX ,     XXXXXXX , XXXXXXX , XXXXXXX
+                              XXXXXXX , XXXXXXX , XXXXXXX ,     MO_MC   , MO_SD   , XXXXXXX
 )
 };
 // *INDENT-ON*
