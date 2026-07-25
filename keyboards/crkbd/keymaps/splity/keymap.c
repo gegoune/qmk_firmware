@@ -76,6 +76,16 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 }
 
 // *INDENT-OFF*
+#ifdef CHORDAL_HOLD
+const char chordal_hold_layout[MATRIX_ROWS][MATRIX_COLS] PROGMEM =
+    LAYOUT_split_3x6_3(
+        'L', 'L', 'L', 'L', 'L', 'L',  'R', 'R', 'R', 'R', 'R', 'R',
+        'L', 'L', 'L', 'L', 'L', 'L',  'R', 'R', 'R', 'R', 'R', 'R',
+        'L', 'L', 'L', 'L', 'L', 'L',  'R', 'R', 'R', 'R', 'R', 'R',
+                       'L', 'L', 'L',  'R', 'R', 'R'
+    );
+#endif // CHORDAL_HOLD
+
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 //    ┌───────┬────────┬────────┬────────┬────────┬────────┐   ┌─────┬────────┬────────┬────────┬───────────┬─────────┐
 //    │ MO(6) │   q    │   w    │   e    │   r    │   t    │   │  y  │   u    │   i    │   o    │     p     │  TG(5)  │
@@ -190,6 +200,19 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 )
 };
 // *INDENT-ON*
+
+#ifdef SPECULATIVE_HOLD
+bool get_speculative_hold(uint16_t keycode, keyrecord_t* record) {
+    switch (keycode) { // These keys may be speculatively held.
+    case HOME_A:
+    case HOME_S:
+    case HOME_D:
+    case HOME_F:
+        return true;
+    }
+    return false; // Disable otherwise.
+}
+#endif // SPECULATIVE_HOLD
 
 // Combos
 #ifdef COMBO_ENABLE

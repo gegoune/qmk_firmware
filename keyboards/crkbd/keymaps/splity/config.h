@@ -11,16 +11,18 @@
 // Fix home row mods not emiting keys on Macos login prompt.
 #define TAP_CODE_DELAY 10
 
-// Configure the global tapping term (default: 200ms)
+// https://docs.qmk.fm/tap_hold#tapping-term
 #define TAPPING_TERM 200
+// https://docs.qmk.fm/tap_hold#quick-tap-term
+#define QUICK_TAP_TERM 120
+// https://docs.qmk.fm/tap_hold#chordal-hold
+#define CHORDAL_HOLD  // Constrains holds to opposite-hand combinations.
+// https://docs.qmk.fm/tap_hold#flow-tap
+#define FLOW_TAP_TERM 50
+// https://docs.qmk.fm/tap_hold#speculative-hold
+#define SPECULATIVE_HOLD
+#define SPECULATIVE_HOLD_FLOW_TERM 200
 
-// Makes tap and hold keys trigger the hold if another key is pressed before releasing, even if it hasn't hit the TAPPING_TERM.
-#define PERMISSIVE_HOLD
-
-// Enable rapid switch from tap to hold, disables double tap hold auto-repeat.
-#define TAPPING_FORCE_HOLD
-
-// https://docs.qmk.fm/features/auto_shift#retro-shift
 #define RETRO_SHIFT 500
 // https://docs.qmk.fm/features/auto_shift#auto-shift-repeat-simple-define
 #define AUTO_SHIFT_REPEAT
