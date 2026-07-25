@@ -4,7 +4,6 @@
 #define LAYER_STATE_8BIT
 
 #ifdef OLED_ENABLE
-#   define SPLIT_LAYER_STATE_ENABLE
 #   define OLED_FONT_H "keyboards/crkbd/lib/glcdfont.c"
 #endif
 
