@@ -4,6 +4,8 @@
 #define LAYER_STATE_8BIT
 
 #ifdef OLED_ENABLE
+// https://docs.qmk.fm/features/split_keyboard#data-sync-options
+#define SPLIT_OLED_ENABLE  // Syncs the on/off state of the OLED between the halves.
 #   define OLED_FONT_H "keyboards/crkbd/lib/glcdfont.c"
 #endif
 
