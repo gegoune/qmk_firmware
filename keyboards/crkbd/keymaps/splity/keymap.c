@@ -68,9 +68,12 @@ enum custom_keycodes {
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     switch (keycode) {
     case CK_ENT:
-        // When keycode CK_ENT is pressed send enter and turn off numpad layer.
-        layer_off(_NUMPAD);
-        break;
+        // Exit the numpad layer after sending Enter.
+        if (record->event.pressed) {
+            layer_off(_NUMPAD);
+            tap_code(KC_ENT);
+        }
+        return false;
     }
     return true;
 }
