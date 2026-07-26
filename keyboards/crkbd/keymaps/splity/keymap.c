@@ -55,7 +55,7 @@ enum layers {
     _LOWER,
     _RAISE,
     _ADJUST,
-    _NAVIGATION,
+    _NAV,
     _NUMPAD,
     _EXTRA
 };
@@ -90,52 +90,52 @@ const char chordal_hold_layout[MATRIX_ROWS][MATRIX_COLS] PROGMEM =
 #endif // CHORDAL_HOLD
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
-//    ┌───────┬────────┬────────┬────────┬────────┬────────┐   ┌─────┬────────┬────────┬────────┬───────────┬─────────┐
-//    │ MO(6) │   q    │   w    │   e    │   r    │   t    │   │  y  │   u    │   i    │   o    │     p     │  TG(5)  │
-//    ├───────┼────────┼────────┼────────┼────────┼────────┤   ├─────┼────────┼────────┼────────┼───────────┼─────────┤
-//    │  tab  │ HOME_A │ HOME_S │ HOME_D │ HOME_F │ HOME_G │   │  h  │ HOME_J │ HOME_K │ HOME_L │ HOME_SCLN │    '    │
-//    ├───────┼────────┼────────┼────────┼────────┼────────┤   ├─────┼────────┼────────┼────────┼───────────┼─────────┤
-//    │ NWIN  │ HOME_Z │   x    │   c    │   v    │   b    │   │  n  │   m    │   ,    │   .    │ HOME_SLSH │ CW_TOGG │
-//    └───────┴────────┴────────┼────────┼────────┼────────┤   ├─────┼────────┼────────┼────────┴───────────┴─────────┘
-//                              │ MO(4)  │ MO(1)  │  spc   │   │ ent │ MO(2)  │  bspc  │
-//                              └────────┴────────┴────────┘   └─────┴────────┴────────┘
+//    ┌────────────┬────────┬────────┬──────────┬────────────┬────────┐   ┌─────┬────────────┬────────┬────────┬───────────┬─────────────┐
+//    │ MO(_EXTRA) │   q    │   w    │    e     │     r      │   t    │   │  y  │     u      │   i    │   o    │     p     │ TG(_NUMPAD) │
+//    ├────────────┼────────┼────────┼──────────┼────────────┼────────┤   ├─────┼────────────┼────────┼────────┼───────────┼─────────────┤
+//    │    tab     │ HOME_A │ HOME_S │  HOME_D  │   HOME_F   │ HOME_G │   │  h  │   HOME_J   │ HOME_K │ HOME_L │ HOME_SCLN │      '      │
+//    ├────────────┼────────┼────────┼──────────┼────────────┼────────┤   ├─────┼────────────┼────────┼────────┼───────────┼─────────────┤
+//    │    NVIM    │ HOME_Z │   x    │    c     │     v      │   b    │   │  n  │     m      │   ,    │   .    │ HOME_SLSH │   CW_TOGG   │
+//    └────────────┴────────┴────────┼──────────┼────────────┼────────┤   ├─────┼────────────┼────────┼────────┴───────────┴─────────────┘
+//                                   │ MO(_NAV) │ MO(_LOWER) │  spc   │   │ ent │ MO(_RAISE) │  bspc  │
+//                                   └──────────┴────────────┴────────┘   └─────┴────────────┴────────┘
 [_BASE] = LAYOUT_split_3x6_3(
-  MO(6)  , KC_Q   , KC_W   , KC_E   , KC_R   , KC_T   ,     KC_Y   , KC_U   , KC_I    , KC_O   , KC_P      , TG(5)  ,
-  KC_TAB , HOME_A , HOME_S , HOME_D , HOME_F , HOME_G ,     KC_H   , HOME_J , HOME_K  , HOME_L , HOME_SCLN , KC_QUOT,
-  NWIN   , HOME_Z , KC_X   , KC_C   , KC_V   , KC_B   ,     KC_N   , KC_M   , KC_COMM , KC_DOT , HOME_SLSH , CW_TOGG,
-                             MO(4)  , MO(1)  , KC_SPC ,     KC_ENT , MO(2)  , KC_BSPC
+  MO(_EXTRA) , KC_Q   , KC_W   , KC_E     , KC_R       , KC_T   ,     KC_Y   , KC_U       , KC_I    , KC_O   , KC_P      , TG(_NUMPAD),
+  KC_TAB     , HOME_A , HOME_S , HOME_D   , HOME_F     , HOME_G ,     KC_H   , HOME_J     , HOME_K  , HOME_L , HOME_SCLN , KC_QUOT    ,
+  NVIM       , HOME_Z , KC_X   , KC_C     , KC_V       , KC_B   ,     KC_N   , KC_M       , KC_COMM , KC_DOT , HOME_SLSH , CW_TOGG    ,
+                                 MO(_NAV) , MO(_LOWER) , KC_SPC ,     KC_ENT , MO(_RAISE) , KC_BSPC
 ),
 
-//    ┌─────┬─────┬─────┬──────┬─────┬─────┐   ┌──────┬───────┬──────┬──────┬──────┬──────┐
-//    │     │  4  │  3  │  2   │  1  │  5  │   │  0   │   6   │  7   │  8   │  9   │  no  │
-//    ├─────┼─────┼─────┼──────┼─────┼─────┤   ├──────┼───────┼──────┼──────┼──────┼──────┤
-//    │     │     │     │      │     │ no  │   │ left │ down  │  up  │ rght │ home │ iso\ │
-//    ├─────┼─────┼─────┼──────┼─────┼─────┤   ├──────┼───────┼──────┼──────┼──────┼──────┤
-//    │     │ no  │ no  │  no  │ no  │ no  │   │  no  │ pgdn  │ pgup │      │ end  │  no  │
-//    └─────┴─────┴─────┼──────┼─────┼─────┤   ├──────┼───────┼──────┼──────┴──────┴──────┘
-//                      │ lgui │     │ spc │   │ ent  │ MO(3) │ del  │
-//                      └──────┴─────┴─────┘   └──────┴───────┴──────┘
+//    ┌─────┬─────┬─────┬──────┬─────┬─────┐   ┌──────┬─────────────┬──────┬──────┬──────┬──────┐
+//    │     │  4  │  3  │  2   │  1  │  5  │   │  0   │      6      │  7   │  8   │  9   │  no  │
+//    ├─────┼─────┼─────┼──────┼─────┼─────┤   ├──────┼─────────────┼──────┼──────┼──────┼──────┤
+//    │     │     │     │      │     │ no  │   │ left │    down     │  up  │ rght │ home │ iso\ │
+//    ├─────┼─────┼─────┼──────┼─────┼─────┤   ├──────┼─────────────┼──────┼──────┼──────┼──────┤
+//    │     │ no  │ no  │  no  │ no  │ no  │   │  no  │    pgdn     │ pgup │      │ end  │  no  │
+//    └─────┴─────┴─────┼──────┼─────┼─────┤   ├──────┼─────────────┼──────┼──────┴──────┴──────┘
+//                      │ lgui │     │ spc │   │ ent  │ MO(_ADJUST) │ del  │
+//                      └──────┴─────┴─────┘   └──────┴─────────────┴──────┘
 [_LOWER] = LAYOUT_split_3x6_3(
-  _______ , KC_4    , KC_3    , KC_2    , KC_1    , KC_5    ,     KC_0    , KC_6    , KC_7    , KC_8     , KC_9    , XXXXXXX,
-  _______ , _______ , _______ , _______ , _______ , XXXXXXX ,     KC_LEFT , KC_DOWN , KC_UP   , KC_RIGHT , KC_HOME , KC_NUBS,
-  _______ , XXXXXXX , XXXXXXX , XXXXXXX , XXXXXXX , XXXXXXX ,     XXXXXXX , KC_PGDN , KC_PGUP , _______  , KC_END  , XXXXXXX,
-                                KC_LGUI , _______ , KC_SPC  ,     KC_ENT  , MO(3)   , KC_DEL
+  _______ , KC_4    , KC_3    , KC_2    , KC_1    , KC_5    ,     KC_0    , KC_6        , KC_7    , KC_8     , KC_9    , XXXXXXX,
+  _______ , _______ , _______ , _______ , _______ , XXXXXXX ,     KC_LEFT , KC_DOWN     , KC_UP   , KC_RIGHT , KC_HOME , KC_NUBS,
+  _______ , XXXXXXX , XXXXXXX , XXXXXXX , XXXXXXX , XXXXXXX ,     XXXXXXX , KC_PGDN     , KC_PGUP , _______  , KC_END  , XXXXXXX,
+                                KC_LGUI , _______ , KC_SPC  ,     KC_ENT  , MO(_ADJUST) , KC_DEL
 ),
 
-//    ┌─────┬─────┬─────┬────┬───────┬─────┐   ┌─────┬─────┬─────┬────┬────┬────┐
-//    │     │  !  │  @  │ #  │   $   │  %  │   │  ^  │  &  │  *  │ no │ no │ no │
-//    ├─────┼─────┼─────┼────┼───────┼─────┤   ├─────┼─────┼─────┼────┼────┼────┤
-//    │     │     │     │ (  │   )   │ GBP │   │  -  │  =  │  [  │ ]  │ \  │ `  │
-//    ├─────┼─────┼─────┼────┼───────┼─────┤   ├─────┼─────┼─────┼────┼────┼────┤
-//    │     │ no  │ no  │ no │  no   │ no  │   │  _  │  +  │  {  │ }  │ |  │ ~  │
-//    └─────┴─────┴─────┼────┼───────┼─────┤   ├─────┼─────┼─────┼────┴────┴────┘
-//                      │ no │ MO(3) │ spc │   │ ent │     │     │
-//                      └────┴───────┴─────┘   └─────┴─────┴─────┘
+//    ┌─────┬─────┬─────┬────┬─────────────┬─────┐   ┌─────┬─────┬─────┬────┬────┬────┐
+//    │     │  !  │  @  │ #  │      $      │  %  │   │  ^  │  &  │  *  │ no │ no │ no │
+//    ├─────┼─────┼─────┼────┼─────────────┼─────┤   ├─────┼─────┼─────┼────┼────┼────┤
+//    │     │     │     │ (  │      )      │ GBP │   │  -  │  =  │  [  │ ]  │ \  │ `  │
+//    ├─────┼─────┼─────┼────┼─────────────┼─────┤   ├─────┼─────┼─────┼────┼────┼────┤
+//    │     │ no  │ no  │ no │     no      │ no  │   │  _  │  +  │  {  │ }  │ |  │ ~  │
+//    └─────┴─────┴─────┼────┼─────────────┼─────┤   ├─────┼─────┼─────┼────┴────┴────┘
+//                      │ no │ MO(_ADJUST) │ spc │   │ ent │     │     │
+//                      └────┴─────────────┴─────┘   └─────┴─────┴─────┘
 [_RAISE] = LAYOUT_split_3x6_3(
-  _______ , KC_EXLM , KC_AT   , KC_HASH , KC_DLR  , KC_PERC ,     KC_CIRC , KC_AMPR , KC_ASTR , XXXXXXX , XXXXXXX , XXXXXXX,
-  _______ , _______ , _______ , KC_LPRN , KC_RPRN , GBP     ,     KC_MINS , KC_EQL  , KC_LBRC , KC_RBRC , KC_BSLS , KC_GRV ,
-  _______ , XXXXXXX , XXXXXXX , XXXXXXX , XXXXXXX , XXXXXXX ,     KC_UNDS , KC_PLUS , KC_LCBR , KC_RCBR , KC_PIPE , KC_TILD,
-                                XXXXXXX , MO(3)   , KC_SPC  ,     KC_ENT  , _______ , _______
+  _______ , KC_EXLM , KC_AT   , KC_HASH , KC_DLR      , KC_PERC ,     KC_CIRC , KC_AMPR , KC_ASTR , XXXXXXX , XXXXXXX , XXXXXXX,
+  _______ , _______ , _______ , KC_LPRN , KC_RPRN     , GBP     ,     KC_MINS , KC_EQL  , KC_LBRC , KC_RBRC , KC_BSLS , KC_GRV ,
+  _______ , XXXXXXX , XXXXXXX , XXXXXXX , XXXXXXX     , XXXXXXX ,     KC_UNDS , KC_PLUS , KC_LCBR , KC_RCBR , KC_PIPE , KC_TILD,
+                                XXXXXXX , MO(_ADJUST) , KC_SPC  ,     KC_ENT  , _______ , _______
 ),
 
 //    ┌─────────┬────┬────┬──────┬─────┬─────┐   ┌──────┬──────┬──────┬──────┬────┬───────────┐
@@ -163,7 +163,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 //    └────┴────┴────┼──────┼────┼────┤   ├─────────┼────────┼────────┼────────┴────┴────┘
 //                   │ lgui │ no │ no │   │ NV_ALFH │ NV_ALF │  del   │
 //                   └──────┴────┴────┘   └─────────┴────────┴────────┘
-[_NAVIGATION] = LAYOUT_split_3x6_3(
+[_NAV] = LAYOUT_split_3x6_3(
   XXXXXXX , XXXXXXX , XXXXXXX , XXXXXXX , XXXXXXX , XXXXXXX ,     NV_TGP  , NV_HB   , NV_HF   , NV_TGN , XXXXXXX , XXXXXXX,
   XXXXXXX , XXXXXXX , XXXXXXX , XXXXXXX , XXXXXXX , XXXXXXX ,     NV_DP   , XXXXXXX , XXXXXXX , NV_DN  , XXXXXXX , XXXXXXX,
   XXXXXXX , XXXXXXX , XXXXXXX , XXXXXXX , XXXXXXX , XXXXXXX ,     NV_TP   , NV_MTL  , NV_MTR  , NV_TN  , XXXXXXX , XXXXXXX,
@@ -261,7 +261,7 @@ void oled_render_layer_state(void) {
     case _ADJUST:
         oled_write_ln_P(PSTR("ADJT"), false);
         break;
-    case _NAVIGATION:
+    case _NAV:
         oled_write_ln_P(PSTR("NAVI"), false);
         break;
     case _NUMPAD:
