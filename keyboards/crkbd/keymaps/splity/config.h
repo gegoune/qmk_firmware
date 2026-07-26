@@ -9,7 +9,7 @@
 #endif
 
 // Fix home row mods not emiting keys on Macos login prompt.
-#define TAP_CODE_DELAY 10
+#define TAP_CODE_DELAY 5
 
 // https://docs.qmk.fm/tap_hold#tapping-term
 #define TAPPING_TERM 200
