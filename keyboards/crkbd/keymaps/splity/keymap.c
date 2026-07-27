@@ -235,7 +235,7 @@ combo_t key_combos[] = {
 };
 #endif // COMBO_ENABLE
 
-#ifdef OLED_ENAL
+#ifdef OLED_ENABLE
 // Provided (weakly) by keyboards/crkbd/crkbd.c; declare it so we can call it.
 void oled_render_logo(void);
 
