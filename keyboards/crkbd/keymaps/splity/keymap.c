@@ -1,16 +1,15 @@
 #include QMK_KEYBOARD_H
 #include <stdio.h>
 
-// HOME ROW MODS
-// Left-hand home row mods
+// Home row mods
+// Left-hand
 #define HOME_A LALT_T(KC_A)
 #define HOME_S LSFT_T(KC_S)
 #define HOME_D LGUI_T(KC_D)
 #define HOME_F LCTL_T(KC_F)
 #define HOME_G LT(_NUMPAD, KC_G)
 #define HOME_Z RALT_T(KC_Z)
-
-// Right-hand home row mods
+// Right-hand
 #define HOME_J RCTL_T(KC_J)
 #define HOME_K RGUI_T(KC_K)
 #define HOME_L RSFT_T(KC_L)
