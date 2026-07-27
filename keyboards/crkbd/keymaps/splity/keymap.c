@@ -240,10 +240,7 @@ combo_t key_combos[] = {
 void oled_render_logo(void);
 
 oled_rotation_t oled_init_user(oled_rotation_t rotation) {
-    if (!is_keyboard_master()) {
-        return OLED_ROTATION_180;
-    }
-    return OLED_ROTATION_270;
+    return is_keyboard_left() ? OLED_ROTATION_270 : OLED_ROTATION_180;
 }
 
 void oled_render_layer_state(void) {
