@@ -269,6 +269,7 @@ void oled_render_layer_state(void) {
     }
 }
 
+#ifdef CAPS_WORD_ENABLE
 static bool caps_word_active = false;
 void caps_word_set_user(bool active) {
     caps_word_active = active;
@@ -280,6 +281,7 @@ void oled_render_caps_word(void) {
         oled_write_P(PSTR("CAPS"), true);
     }
 }
+#endif // CAPS_WORD_ENABLE
 
 void oled_render_mods(void) {
     uint8_t mods = get_mods() | get_oneshot_mods();
@@ -299,7 +301,9 @@ bool oled_task_user(void) {
     if (is_keyboard_master()) {
         oled_render_layer_state();
         oled_render_mods();
+#ifdef CAPS_WORD_ENABLE
         oled_render_caps_word();
+#endif
     } else {
         oled_render_logo();
     }
@@ -331,6 +335,8 @@ bool shutdown_user(bool jump_to_bootloader) {
 }
 #endif // OLED_ENABLE
 
+#ifdef AUTO_SHIFT_ENABLE
 bool get_custom_auto_shifted_key(uint16_t keycode, keyrecord_t *record) {
     return IS_QK_MOD_TAP(keycode);
 }
+#endif // AUTO_SHIFT_ENABLE
