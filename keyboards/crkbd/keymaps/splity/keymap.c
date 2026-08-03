@@ -334,8 +334,8 @@ bool shutdown_user(bool jump_to_bootloader) {
 }
 #endif // OLED_ENABLE
 
-#ifdef AUTO_SHIFT_ENABLE
+#if defined(AUTO_SHIFT_ENABLE) && defined(RETRO_SHIFT)
 bool get_custom_auto_shifted_key(uint16_t keycode, keyrecord_t *record) {
     return IS_QK_MOD_TAP(keycode);
 }
-#endif // AUTO_SHIFT_ENABLE
+#endif
