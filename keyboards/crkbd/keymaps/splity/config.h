@@ -4,6 +4,7 @@
 #define LAYER_STATE_8BIT
 
 #ifdef OLED_ENABLE
+#define OLED_TIMEOUT 10000
 // https://docs.qmk.fm/features/split_keyboard#data-sync-options
 #define SPLIT_OLED_ENABLE  // Syncs the on/off state of the OLED between the halves.
 #endif

@@ -275,10 +275,11 @@ void caps_word_set_user(bool active) {
 }
 
 void oled_render_caps_word(void) {
-    if (caps_word_active) {
-        oled_set_cursor(0, oled_max_lines() - 1);
-        oled_write_P(PSTR("CAPS"), true);
-    }
+    // Write the bottom line every frame (blank when inactive) so it self-clears
+    // without oled_clear(); an unchanged line stays non-dirty and lets the OLED
+    // timeout expire.
+    oled_set_cursor(0, oled_max_lines() - 1);
+    oled_write_P(caps_word_active ? PSTR("CAPS") : PSTR("    "), caps_word_active);
 }
 #endif // CAPS_WORD_ENABLE
 
@@ -296,7 +297,6 @@ void oled_render_mods(void) {
 }
 
 bool oled_task_user(void) {
-    oled_clear();
     if (is_keyboard_master()) {
         oled_render_layer_state();
         oled_render_mods();
