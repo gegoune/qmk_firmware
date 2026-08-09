@@ -43,9 +43,6 @@
 #define MO_SD HYPR(KC_SPC) // MacOS Show Desktop
 #define MO_MC HYPR(KC_ENT) // MacOS Mission Control
 
-// Neovim
-#define NWIN LCTL(KC_W) // Send C-w
-
 #define GBP LSFT(KC_NUBS) // British Pound symbol
 
 enum layers {
@@ -93,14 +90,14 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 //    ├────────────┼────────┼────────┼──────────┼────────────┼────────┤   ├─────┼────────────┼────────┼────────┼───────────┼─────────────┤
 //    │    tab     │ HOME_A │ HOME_S │  HOME_D  │   HOME_F   │ HOME_G │   │  h  │   HOME_J   │ HOME_K │ HOME_L │ HOME_SCLN │      '      │
 //    ├────────────┼────────┼────────┼──────────┼────────────┼────────┤   ├─────┼────────────┼────────┼────────┼───────────┼─────────────┤
-//    │    NVIM    │ HOME_Z │   x    │    c     │     v      │   b    │   │  n  │     m      │   ,    │   .    │ HOME_SLSH │   CW_TOGG   │
+//    │     no     │ HOME_Z │   x    │    c     │     v      │   b    │   │  n  │     m      │   ,    │   .    │ HOME_SLSH │   CW_TOGG   │
 //    └────────────┴────────┴────────┼──────────┼────────────┼────────┤   ├─────┼────────────┼────────┼────────┴───────────┴─────────────┘
 //                                   │ MO(_NAV) │ MO(_LOWER) │  spc   │   │ ent │ MO(_RAISE) │  bspc  │
 //                                   └──────────┴────────────┴────────┘   └─────┴────────────┴────────┘
 [_BASE] = LAYOUT_split_3x6_3(
   MO(_EXTRA) , KC_Q   , KC_W   , KC_E     , KC_R       , KC_T   ,     KC_Y   , KC_U       , KC_I    , KC_O   , KC_P      , TG(_NUMPAD),
   KC_TAB     , HOME_A , HOME_S , HOME_D   , HOME_F     , HOME_G ,     KC_H   , HOME_J     , HOME_K  , HOME_L , HOME_SCLN , KC_QUOT    ,
-  NVIM       , HOME_Z , KC_X   , KC_C     , KC_V       , KC_B   ,     KC_N   , KC_M       , KC_COMM , KC_DOT , HOME_SLSH , CW_TOGG    ,
+  XXXXXXX    , HOME_Z , KC_X   , KC_C     , KC_V       , KC_B   ,     KC_N   , KC_M       , KC_COMM , KC_DOT , HOME_SLSH , CW_TOGG    ,
                                  MO(_NAV) , MO(_LOWER) , KC_SPC ,     KC_ENT , MO(_RAISE) , KC_BSPC
 ),
 
