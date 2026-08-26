@@ -24,11 +24,5 @@
 #define SPECULATIVE_HOLD
 #define SPECULATIVE_HOLD_FLOW_TERM 200
 
-#define RETRO_SHIFT 500
-// https://docs.qmk.fm/features/auto_shift#auto-shift-repeat-simple-define
-#define AUTO_SHIFT_REPEAT
-// https://docs.qmk.fm/features/auto_shift#no-auto-shift-special-simple-define
-#define NO_AUTO_SHIFT_SPECIAL
-
 // https://docs.qmk.fm/features/caps_word
 #define BOTH_SHIFTS_TURNS_ON_CAPS_WORD

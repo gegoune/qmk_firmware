@@ -11,4 +11,3 @@ OLED_ENABLE         = yes
 OLED_DRIVER         = ssd1306
 CAPS_WORD_ENABLE    = yes
 COMBO_ENABLE        = yes
-AUTO_SHIFT_ENABLE   = yes
